@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:real_tor_app/constants.dart';
-import 'package:real_tor_app/widgets/app_bar_widget.dart';
 
 class AgentProfilePage extends StatelessWidget {
   const AgentProfilePage({Key? key}) : super(key: key);

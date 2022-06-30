@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:real_tor_app/agent_profile_page.dart';
+import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
+import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/notification_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AgentProfilePage(),
+      home: const ChatHistoryPage(),
     );
   }
 }
