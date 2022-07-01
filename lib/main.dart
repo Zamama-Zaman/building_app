@@ -4,7 +4,9 @@ import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
 import 'package:real_tor_app/presentation/pages/conversation_page.dart';
 import 'package:real_tor_app/presentation/pages/login_page.dart';
 import 'package:real_tor_app/presentation/pages/notification_page.dart';
+import 'package:real_tor_app/presentation/pages/post_property_start_page.dart';
 import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
+import 'package:real_tor_app/presentation/pages/property_search_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const PostPropertyStartPage(),
     );
   }
 }
