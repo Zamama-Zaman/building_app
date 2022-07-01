@@ -3,11 +3,73 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bubble/bubble.dart';
+import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
+import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/notification_page.dart';
 
 import '../../constants.dart';
 
-class ConversationPage extends StatelessWidget {
+class ConversationPage extends StatefulWidget {
   const ConversationPage({Key? key}) : super(key: key);
+
+  @override
+  State<ConversationPage> createState() => _ConversationPageState();
+}
+
+class _ConversationPageState extends State<ConversationPage> {
+  Widget popupMenuButton() {
+    return PopupMenuButton(
+      icon: const Icon(Icons.more_vert),
+      // color: Colors.blueGrey,
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: Text(
+                'Agent Profile',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AgentProfilePage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Chat History',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatHistoryPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Notificaiton Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotificationPage(),
+                  ),
+                );
+              }),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +86,69 @@ class ConversationPage extends StatelessWidget {
         ),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () {},
           icon: SvgPicture.asset("assets/images/arrow_back_icon.svg"),
         ),
         actions: [
+          popupMenuButton(),
           IconButton(
             onPressed: () {},
             icon: SvgPicture.asset("assets/images/search_icon.svg"),
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        color: Constant.kBackgroundColor,
+        padding: EdgeInsets.symmetric(horizontal: 25),
+        child: Container(
+          height: 66,
+          width: double.infinity,
+          margin: EdgeInsets.only(bottom: 10),
+          padding: EdgeInsets.symmetric(
+            horizontal: 10,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(50),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade300,
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: "Write a message",
+                    hintStyle: TextStyle(
+                      color: Constant.kTextGreyWhiteColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              Container(
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Constant.kPrimaryColor,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset("assets/images/send_icon.svg"),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

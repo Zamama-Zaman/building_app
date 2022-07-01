@@ -22,7 +22,11 @@ class AgentProfilePage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        leading: Icon(Icons.arrow_back, color: Constant.kWhiteColor),
+        leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back, color: Constant.kWhiteColor)),
         actions: [
           IconButton(
             onPressed: null,

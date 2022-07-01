@@ -56,7 +56,9 @@ class _NotificationPageState extends State<NotificationPage> {
         ),
         centerTitle: true,
         leading: IconButton(
-          onPressed: null,
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: SvgPicture.asset("assets/images/arrow_back_icon.svg"),
         ),
         actions: [
