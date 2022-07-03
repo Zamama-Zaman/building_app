@@ -5,9 +5,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bubble/bubble.dart';
 import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/login_page.dart';
 import 'package:real_tor_app/presentation/pages/notification_page.dart';
+import 'package:real_tor_app/presentation/pages/post_property_start_page.dart';
+import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
+import 'package:real_tor_app/presentation/pages/property_search_filter_page.dart';
+import 'package:real_tor_app/presentation/pages/property_search_home.dart';
 
 import '../../constants.dart';
+import '../../size_config.dart';
 
 class ConversationPage extends StatefulWidget {
   const ConversationPage({Key? key}) : super(key: key);
@@ -67,12 +73,88 @@ class _ConversationPageState extends State<ConversationPage> {
                 );
               }),
         ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Login Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Property Search Home Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PropertySearchHome(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Property Listing Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PropertyListingPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Post Proterty Start Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PostPropertyStartPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Property Search Filter',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PropertySearchFilterPage(),
+                  ),
+                );
+              }),
+        ),
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Constant.kPrimaryColor,
       appBar: AppBar(
