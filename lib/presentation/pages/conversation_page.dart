@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bubble/bubble.dart';
+import 'package:real_tor_app/presentation/pages/advance_filters_page.dart';
 import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
 import 'package:real_tor_app/presentation/pages/login_page.dart';
@@ -144,6 +145,21 @@ class _ConversationPageState extends State<ConversationPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => PropertySearchFilterPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Advance Filter',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AdvanceFilterPage(),
                   ),
                 );
               }),

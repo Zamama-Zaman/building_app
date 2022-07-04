@@ -224,7 +224,12 @@ class _PropertySearchFilterPageState extends State<PropertySearchFilterPage> {
                         width: double.infinity,
                         child: Row(
                           children: [
-                            Text("max"),
+                            Text(
+                              "Max",
+                              style: TextStyle(
+                                color: Color(0xFFAAAAAA),
+                              ),
+                            ),
                             Expanded(
                               child: SliderTheme(
                                 data: SliderThemeData(
@@ -253,7 +258,12 @@ class _PropertySearchFilterPageState extends State<PropertySearchFilterPage> {
                                     }),
                               ),
                             ),
-                            Text("min"),
+                            Text(
+                              "Min",
+                              style: TextStyle(
+                                color: Color(0xFFAAAAAA),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -265,7 +275,72 @@ class _PropertySearchFilterPageState extends State<PropertySearchFilterPage> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: getProportionateScreenHeight(200)),
+                      SizedBox(height: getProportionateScreenHeight(40)),
+                      Row(
+                        children: [
+                          Container(
+                            height: 33.56,
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEAF3FA),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Furnished",
+                              style: TextStyle(
+                                color: Color(0xFF484D61),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Container(
+                            height: 33.56,
+                            // width: 102.56,
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEAF3FA),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Semi-furnished",
+                              style: TextStyle(
+                                color: Color(0xFF484D61),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: getProportionateScreenHeight(40)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 46,
+                            padding: EdgeInsets.symmetric(horizontal: 40),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFEA4C89),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Apply",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: getProportionateScreenWidth(30)),
+                          Text(
+                            "Advanced Search",
+                            style: TextStyle(
+                              color: Color(0xFF3E67D6),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: getProportionateScreenHeight(40)),
                     ],
                   ),
                 ),
