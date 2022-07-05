@@ -6,6 +6,8 @@ import 'package:bubble/bubble.dart';
 import 'package:real_tor_app/presentation/pages/advance_filters_page.dart';
 import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/home_page.dart';
+import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
 import 'package:real_tor_app/presentation/pages/login_page.dart';
 import 'package:real_tor_app/presentation/pages/notification_page.dart';
 import 'package:real_tor_app/presentation/pages/post_property_start_page.dart';
@@ -160,6 +162,36 @@ class _ConversationPageState extends State<ConversationPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => AdvanceFilterPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Home Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Loan Bank Detail',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoanBankDetailPage(),
                   ),
                 );
               }),
