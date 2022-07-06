@@ -11,6 +11,7 @@ import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
 import 'package:real_tor_app/presentation/pages/login_page.dart';
 import 'package:real_tor_app/presentation/pages/notification_page.dart';
 import 'package:real_tor_app/presentation/pages/post_property_start_page.dart';
+import 'package:real_tor_app/presentation/pages/property_inside_page.dart';
 import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
 import 'package:real_tor_app/presentation/pages/property_search_filter_page.dart';
 import 'package:real_tor_app/presentation/pages/property_search_home.dart';
@@ -183,18 +184,35 @@ class _ConversationPageState extends State<ConversationPage> {
         ),
         PopupMenuItem<String>(
           child: TextButton(
-              child: const Text(
-                'Loan Bank Detail',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoanBankDetailPage(),
-                  ),
-                );
-              }),
+            child: const Text(
+              'Loan Bank Detail',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoanBankDetailPage(),
+                ),
+              );
+            },
+          ),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Property Inside',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PropertyInsidePage(),
+                ),
+              );
+            },
+          ),
         ),
       ],
     );
