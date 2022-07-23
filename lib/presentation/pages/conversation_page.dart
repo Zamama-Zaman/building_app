@@ -8,6 +8,7 @@ import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
 import 'package:real_tor_app/presentation/pages/home_page.dart';
 import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
+import 'package:real_tor_app/presentation/pages/loan_calculator_page_two.dart';
 import 'package:real_tor_app/presentation/pages/login_page.dart';
 import 'package:real_tor_app/presentation/pages/notification_page.dart';
 import 'package:real_tor_app/presentation/pages/post_property_personal_detail_page.dart';
@@ -196,6 +197,22 @@ class _ConversationPageState extends State<ConversationPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => LoanBankDetailPage(),
+                ),
+              );
+            },
+          ),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Loan Calculator',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoanCalculatorPageTwo(),
                 ),
               );
             },
