@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:real_tor_app/presentation/data/firebase_repository.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,6 +13,25 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool isSelected = false;
+  bool isShowPass = false;
+
+  late TextEditingController _emailController;
+  late TextEditingController _passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -133,6 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               TextFormField(
+                                controller: _emailController,
                                 style: TextStyle(
                                   color: Color(0xFFEAF3FA),
                                 ),
@@ -162,16 +183,26 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               TextFormField(
+                                controller: _passwordController,
                                 style: TextStyle(
                                   color: Color(0xFFEAF3FA),
                                 ),
-                                obscureText: true,
+                                obscureText: isShowPass,
                                 decoration: InputDecoration(
                                   hintText: "password here",
-                                  suffixIcon: Icon(
-                                    Icons.remove_red_eye,
-                                    size: 20,
-                                    color: Color(0xFFEAF3FA),
+                                  suffixIcon: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isShowPass = !isShowPass;
+                                      });
+                                    },
+                                    child: Icon(
+                                      isShowPass
+                                          ? Icons.remove_red_eye
+                                          : Icons.remove_red_eye_outlined,
+                                      size: 20,
+                                      color: Color(0xFFEAF3FA),
+                                    ),
                                   ),
                                   hintStyle: TextStyle(
                                     color: Color(0xFFEAF3FA),
@@ -221,20 +252,23 @@ class _LoginPageState extends State<LoginPage> {
                         Center(
                           child: Column(
                             children: [
-                              Container(
-                                height: 46,
-                                width: 160,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  border: Border.all(
-                                    color: Colors.white,
+                              InkWell(
+                                onTap: _signIn,
+                                child: Container(
+                                  height: 46,
+                                  width: 160,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Sign In",
-                                  style: TextStyle(
-                                    color: Colors.white,
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -273,5 +307,26 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Future _signIn() async {
+    if (_emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      bool check = await FirebaseHelper().loginWithEmailAndPassword(
+        _emailController.text.toString(),
+        _passwordController.text.toString(),
+      );
+      if (!check) {
+        SnackBar snack = SnackBar(
+          content: Text("Invalid User Credentials"),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snack);
+      }
+    } else {
+      SnackBar snack = SnackBar(
+        content: Text("Email And Password Field is Empty"),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snack);
+    }
   }
 }
