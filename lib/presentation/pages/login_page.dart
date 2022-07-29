@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:real_tor_app/presentation/data/firebase_repository.dart';
+import 'package:real_tor_app/presentation/pages/default_page.dart';
+import 'package:real_tor_app/presentation/pages/home_page.dart';
+import 'package:real_tor_app/size_config.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,7 +16,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool isSelected = false;
-  bool isShowPass = false;
+  bool isShowPass = true;
 
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
@@ -34,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
@@ -43,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
               Stack(
                 children: [
                   Container(
-                    height: screenHeight + 100,
+                    height: screenHeight,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -53,22 +57,25 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Container(
-                    height: screenHeight + 100,
+                    height: screenHeight,
                     width: double.infinity,
-                    padding: EdgeInsets.symmetric(horizontal: 60),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(40),
+                    ),
+                    // alignment: Alignment.center,
                     color: Colors.transparent,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 180),
+                        SizedBox(height: getProportionateScreenHeight(180)),
                         Container(
-                          width: 274,
-                          height: 98,
+                          width: double.infinity,
+                          height: getProportionateScreenHeight(118),
                           color: Colors.transparent,
                           child: Text(
                             "Welcome Back",
                             style: TextStyle(
-                              fontSize: 45,
+                              fontSize: getProportionateScreenWidth(45),
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
                             ),
@@ -82,9 +89,11 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(5),
                               elevation: 1.0,
                               child: Container(
-                                height: 49,
-                                width: 143,
-                                padding: EdgeInsets.symmetric(horizontal: 13),
+                                height: getProportionateScreenHeight(49),
+                                width: getProportionateScreenWidth(143),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        getProportionateScreenWidth(10)),
                                 decoration: BoxDecoration(
                                   color: Color(0xFF4869D4),
                                   borderRadius: BorderRadius.circular(5),
@@ -98,7 +107,8 @@ class _LoginPageState extends State<LoginPage> {
                                     Text(
                                       "Sign in with Facebook",
                                       style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
                                         color: Colors.white,
                                       ),
                                     )
@@ -112,9 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                               borderRadius: BorderRadius.circular(5),
                               elevation: 1.0,
                               child: Container(
-                                height: 49,
-                                width: 143,
-                                padding: EdgeInsets.symmetric(horizontal: 13),
+                                height: getProportionateScreenHeight(49),
+                                width: getProportionateScreenWidth(143),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        getProportionateScreenWidth(13)),
                                 decoration: BoxDecoration(
                                   color: Color(0xFFEB4132),
                                   borderRadius: BorderRadius.circular(5),
@@ -128,7 +140,8 @@ class _LoginPageState extends State<LoginPage> {
                                     Text(
                                       "Sign in with Google",
                                       style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
                                         color: Colors.white,
                                       ),
                                     )
@@ -253,7 +266,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             children: [
                               InkWell(
-                                onTap: _signIn,
+                                onTap: () => _signIn(),
                                 child: Container(
                                   height: 46,
                                   width: 160,
@@ -321,6 +334,13 @@ class _LoginPageState extends State<LoginPage> {
           content: Text("Invalid User Credentials"),
         );
         ScaffoldMessenger.of(context).showSnackBar(snack);
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DefaultPage(),
+          ),
+        );
       }
     } else {
       SnackBar snack = SnackBar(

@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:real_tor_app/presentation/pages/conversation_page.dart';
+import 'package:real_tor_app/presentation/pages/property_inside_page.dart';
+import 'package:real_tor_app/size_config.dart';
 
 import '../../constants.dart';
 
@@ -119,175 +122,271 @@ class PropertyListingPage extends StatelessWidget {
                             child: ListView.builder(
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
-                              itemBuilder: (context, index) => Container(
-                                height: 127,
-                                width: double.infinity,
-                                margin: EdgeInsets.only(bottom: 20),
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10),
-                                    bottomLeft: Radius.circular(10),
+                              itemBuilder: (context, index) => InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          PropertyInsidePage(),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  height: 127,
+                                  width: double.infinity,
+                                  margin: EdgeInsets.only(bottom: 20),
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10),
+                                      bottomLeft: Radius.circular(10),
+                                    ),
                                   ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      height: 127,
-                                      width: 170,
-                                      color: Colors.transparent,
-                                      child: Stack(
-                                        children: [
-                                          Container(
-                                            height: 123,
-                                            width: 150,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFC4C4C4),
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(10),
-                                                bottomLeft: Radius.circular(10),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        height: 127,
+                                        width: 170,
+                                        color: Colors.transparent,
+                                        child: Stack(
+                                          children: [
+                                            Container(
+                                              height: 123,
+                                              width: 150,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFC4C4C4),
+                                                borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(10),
+                                                  bottomLeft:
+                                                      Radius.circular(10),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Positioned(
-                                            right: 0,
-                                            bottom: 0,
-                                            child: Container(
-                                              height: 49,
-                                              width: 49,
-                                              padding: EdgeInsets.all(3),
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(50),
-                                              ),
+                                            Positioned(
+                                              right: 0,
+                                              bottom: 0,
                                               child: Container(
+                                                height: 49,
+                                                width: 49,
+                                                padding: EdgeInsets.all(3),
                                                 decoration: BoxDecoration(
-                                                  color: Colors.grey,
+                                                  color: Colors.white,
                                                   borderRadius:
                                                       BorderRadius.circular(50),
                                                 ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(width: 10),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  "\$ 4460.00",
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.w500,
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.grey,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50),
                                                   ),
                                                 ),
-                                                Spacer(),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      // SizedBox(
+                                      //   width: getProportionateScreenWidth(
+                                      //     5,
+                                      //   ),
+                                      // ),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "\$ 4460.00",
+                                                    style: TextStyle(
+                                                      fontSize:
+                                                          getProportionateScreenWidth(
+                                                        16,
+                                                      ),
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                  Spacer(),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              ConversationPage(),
+                                                        ),
+                                                      );
+                                                    },
+                                                    child: Image.asset(
+                                                      "assets/images/call_image.png",
+                                                      width:
+                                                          getProportionateScreenWidth(
+                                                        25,
+                                                      ),
+                                                      height:
+                                                          getProportionateScreenHeight(
+                                                        25,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height:
+                                                  getProportionateScreenHeight(
+                                                      10),
+                                            ),
+                                            Text(
+                                              "White Tower",
+                                              style: TextStyle(
+                                                fontSize:
+                                                    getProportionateScreenWidth(
+                                                        14),
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                                height:
+                                                    getProportionateScreenHeight(
+                                                        10)),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
                                                 Image.asset(
-                                                  "assets/images/call_image.png",
-                                                  width: 25,
-                                                  height: 25,
+                                                  "assets/images/bed_room_image.png",
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                    15,
+                                                  ),
+                                                  // height: 15,
                                                 ),
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          Text(
-                                            "White Tower",
-                                            style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Image.asset(
-                                                "assets/images/bed_room_image.png",
-                                                width: 15,
-                                                height: 15,
-                                              ),
-                                              SizedBox(width: 5),
-                                              Text(
-                                                "04",
-                                                style: TextStyle(
-                                                  fontSize: 10,
+                                                SizedBox(
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                          5),
                                                 ),
-                                              ),
-                                              SizedBox(width: 10),
-                                              Image.asset(
-                                                "assets/images/bath_room_image.png",
-                                                width: 15,
-                                                height: 15,
-                                              ),
-                                              SizedBox(width: 5),
-                                              Text(
-                                                "05",
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                ),
-                                              ),
-                                              SizedBox(width: 10),
-                                              Image.asset(
-                                                "assets/images/sq_foot_image.png",
-                                                width: 15,
-                                                height: 15,
-                                              ),
-                                              SizedBox(width: 5),
-                                              Text(
-                                                "2100 Sq/m",
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                ),
-                                              ),
-                                              SizedBox(width: 10),
-                                            ],
-                                          ),
-                                          SizedBox(height: 10),
-                                          SizedBox(height: 10),
-                                          Container(
-                                            height: 25,
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 15),
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFF0FBCC),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            child: Row(
-                                              children: [
                                                 Text(
-                                                  "Mary J Baines",
+                                                  "04",
                                                   style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Color(0xFFAAD362),
+                                                    fontSize:
+                                                        getProportionateScreenWidth(
+                                                      10,
+                                                    ),
                                                   ),
                                                 ),
-                                                Spacer(),
+                                                SizedBox(
+                                                    width:
+                                                        getProportionateScreenWidth(
+                                                  5,
+                                                )),
+                                                Image.asset(
+                                                  "assets/images/bath_room_image.png",
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                          15),
+                                                  // height: 15,
+                                                ),
+                                                SizedBox(
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                          5),
+                                                ),
                                                 Text(
-                                                  "Agent",
+                                                  "05",
                                                   style: TextStyle(
-                                                    fontSize: 10,
+                                                    fontSize:
+                                                        getProportionateScreenWidth(
+                                                      10,
+                                                    ),
                                                   ),
                                                 ),
+                                                SizedBox(
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                          2),
+                                                ),
+                                                Image.asset(
+                                                  "assets/images/sq_foot_image.png",
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                    15,
+                                                  ),
+                                                  // height: 15,
+                                                ),
+                                                SizedBox(
+                                                  width:
+                                                      getProportionateScreenWidth(
+                                                    5,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "21 Sq/m",
+                                                  style: TextStyle(
+                                                    fontSize:
+                                                        getProportionateScreenWidth(
+                                                      10,
+                                                    ),
+                                                  ),
+                                                ),
+                                                // SizedBox(width: 10),
                                               ],
                                             ),
-                                          ),
-                                          SizedBox(height: 5),
-                                        ],
+                                            SizedBox(
+                                                height:
+                                                    getProportionateScreenHeight(
+                                                        20)),
+                                            Container(
+                                              height: 25,
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal:
+                                                    getProportionateScreenWidth(
+                                                  10,
+                                                ),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFF0FBCC),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    "Mary J Baines",
+                                                    style: TextStyle(
+                                                      fontSize:
+                                                          getProportionateScreenWidth(
+                                                        12,
+                                                      ),
+                                                      color: Color(0xFFAAD362),
+                                                    ),
+                                                  ),
+                                                  Spacer(),
+                                                  Text(
+                                                    "Agent",
+                                                    style: TextStyle(
+                                                      fontSize:
+                                                          getProportionateScreenWidth(
+                                                              10),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(height: 5),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

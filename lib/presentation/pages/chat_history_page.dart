@@ -126,7 +126,10 @@ class ChatHistoryPage extends StatelessWidget {
                           itemBuilder: (context, index) {
                             if (index == 0) {
                               return Container(
-                                margin: EdgeInsets.only(right: 20, bottom: 20),
+                                margin: EdgeInsets.only(
+                                  right: 20,
+                                  bottom: 20,
+                                ),
                                 height: 74.53,
                                 width: 74.53,
                                 decoration: BoxDecoration(

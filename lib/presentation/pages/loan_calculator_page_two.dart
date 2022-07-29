@@ -640,7 +640,10 @@ class LoanCalculatorPageTwo extends StatelessWidget {
                         children: [
                           Container(
                             height: getProportionateScreenHeight(46),
-                            width: 175,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(40),
+                            ),
+                            // width: getProportionateScreenWidth(175),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               border: Border.all(
@@ -666,7 +669,10 @@ class LoanCalculatorPageTwo extends StatelessWidget {
                           ),
                           Container(
                             height: getProportionateScreenHeight(46),
-                            width: 175,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(40),
+                            ),
+                            // width: getProportionateScreenWidth(175),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               border: Border.all(

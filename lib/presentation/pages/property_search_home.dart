@@ -5,6 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/property_search_filter_page.dart';
+import 'package:real_tor_app/size_config.dart';
+import 'package:real_tor_app/presentation/pages/advance_filters_page.dart';
+import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
+import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/home_page.dart';
+import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
+import 'package:real_tor_app/presentation/pages/loan_calculator_page_two.dart';
+import 'package:real_tor_app/presentation/pages/login_page.dart';
+import 'package:real_tor_app/presentation/pages/notification_page.dart';
+import 'package:real_tor_app/presentation/pages/post_property_personal_detail_page.dart';
+import 'package:real_tor_app/presentation/pages/post_property_pricing_detail_page.dart';
+import 'package:real_tor_app/presentation/pages/post_property_property_detail.dart';
+import 'package:real_tor_app/presentation/pages/post_property_start_page.dart';
+import 'package:real_tor_app/presentation/pages/property_inside_page.dart';
+import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
+import 'package:real_tor_app/presentation/pages/property_search_filter_page.dart';
+import 'package:real_tor_app/presentation/pages/property_search_home.dart';
 
 import '../../constants.dart';
 import '../../custom_icons_icons.dart';
@@ -17,27 +35,228 @@ class PropertySearchHome extends StatefulWidget {
 }
 
 class _PropertySearchHomeState extends State<PropertySearchHome> {
-  final iconList = <IconData>[
-    CustomIcons.home,
-    CustomIcons.pinLocation,
-    CustomIcons.favourite,
-    CustomIcons.settings,
-  ];
-  List<Widget> get _pages => [ChatHistoryPage(), AgentProfilePage()];
-  int _pageNavIndex = 0;
-  Widget _bottomNavBar() {
-    return AnimatedBottomNavigationBar(
-      activeColor: Colors.blue,
-      backgroundColor: Color(0xFFEAF3FA),
-      gapLocation: GapLocation.center,
-      icons: iconList,
-      iconSize: 20,
-      activeIndex: _pageNavIndex,
-      onTap: (index) {
-        setState(() {
-          _pageNavIndex = index;
-        });
-      },
+  Widget popupMenuButton() {
+    return PopupMenuButton(
+      icon: const Icon(Icons.more_vert),
+      // color: Colors.blueGrey,
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: Text(
+                'Agent Profile',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AgentProfilePage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Chat History',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatHistoryPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Notificaiton Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotificationPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Property Listing Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PropertyListingPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Post Proterty Start Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PostPropertyStartPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Property Search Filter',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PropertySearchFilterPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Advance Filter',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AdvanceFilterPage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+              child: const Text(
+                'Home Page',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                );
+              }),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Loan Bank Detail',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoanBankDetailPage(),
+                ),
+              );
+            },
+          ),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Loan Calculator',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoanCalculatorPageTwo(),
+                ),
+              );
+            },
+          ),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Property Inside',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PropertyInsidePage(),
+                ),
+              );
+            },
+          ),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Post Property Personal Detail',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PostPropertyPersonalDetailPage(),
+                ),
+              );
+            },
+          ),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Post Property Property Detail',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PostPropertyPropertyDetail(),
+                ),
+              );
+            },
+          ),
+        ),
+        PopupMenuItem<String>(
+          child: TextButton(
+            child: const Text(
+              'Post Property Pricing Detail',
+              style: TextStyle(color: Colors.black),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PostPropertyPricingDetailPage(),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 
@@ -62,35 +281,13 @@ class _PropertySearchHomeState extends State<PropertySearchHome> {
           icon: SvgPicture.asset("assets/images/arrow_back_icon.svg"),
         ),
         actions: [
+          popupMenuButton(),
           IconButton(
             onPressed: null,
             icon: SvgPicture.asset("assets/images/search_icon.svg"),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 8,
-        backgroundColor: Colors.white,
-        child: Container(
-          height: 50,
-          width: 50,
-          margin: EdgeInsets.all(3),
-          decoration: BoxDecoration(
-            color: Constant.kPrimaryButtonColor,
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: Icon(
-            Icons.add,
-            size: 30,
-          ),
-        ),
-        onPressed: () {},
-        //   //params
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      bottomNavigationBar: _bottomNavBar(),
-      extendBody: true,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -113,8 +310,10 @@ class _PropertySearchHomeState extends State<PropertySearchHome> {
                       ),
                       SizedBox(width: 10),
                       Container(
-                        height: 244,
-                        width: 275,
+                        // height: 244,
+                        // width: 275,
+                        height: SizeConfig.screenHeight * 0.35,
+                        width: SizeConfig.screenWidth * 0.62,
                         color: Colors.grey.shade300,
                       ),
                     ],
@@ -297,42 +496,52 @@ class _PropertySearchHomeState extends State<PropertySearchHome> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      Container(
-                        height: 51,
-                        width: double.infinity,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(5),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade300,
-                              spreadRadius: 1,
-                              blurRadius: 10,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PropertySearchFilterPage(),
                             ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              "assets/images/location_pin_icon.svg",
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "Noansa",
-                              style: TextStyle(
-                                color: Color(0xFFAAAAAA),
+                          );
+                        },
+                        child: Container(
+                          height: 51,
+                          width: double.infinity,
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.shade300,
+                                spreadRadius: 1,
+                                blurRadius: 10,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
                               ),
-                            ),
-                            Spacer(),
-                            Image.asset(
-                              "assets/images/arrow_forward_image.png",
-                              width: 25,
-                              height: 25,
-                            ),
-                          ],
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                "assets/images/location_pin_icon.svg",
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "Noansa",
+                                style: TextStyle(
+                                  color: Color(0xFFAAAAAA),
+                                ),
+                              ),
+                              Spacer(),
+                              Image.asset(
+                                "assets/images/arrow_forward_image.png",
+                                width: 25,
+                                height: 25,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),

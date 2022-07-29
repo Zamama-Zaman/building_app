@@ -3,22 +3,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bubble/bubble.dart';
-import 'package:real_tor_app/presentation/pages/advance_filters_page.dart';
-import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
-import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
-import 'package:real_tor_app/presentation/pages/home_page.dart';
-import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
-import 'package:real_tor_app/presentation/pages/loan_calculator_page_two.dart';
-import 'package:real_tor_app/presentation/pages/login_page.dart';
-import 'package:real_tor_app/presentation/pages/notification_page.dart';
-import 'package:real_tor_app/presentation/pages/post_property_personal_detail_page.dart';
-import 'package:real_tor_app/presentation/pages/post_property_pricing_detail_page.dart';
-import 'package:real_tor_app/presentation/pages/post_property_property_detail.dart';
-import 'package:real_tor_app/presentation/pages/post_property_start_page.dart';
-import 'package:real_tor_app/presentation/pages/property_inside_page.dart';
-import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
-import 'package:real_tor_app/presentation/pages/property_search_filter_page.dart';
-import 'package:real_tor_app/presentation/pages/property_search_home.dart';
+// import 'package:real_tor_app/presentation/pages/advance_filters_page.dart';
+// import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
+// import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+// import 'package:real_tor_app/presentation/pages/home_page.dart';
+// import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
+// import 'package:real_tor_app/presentation/pages/loan_calculator_page_two.dart';
+// import 'package:real_tor_app/presentation/pages/login_page.dart';
+// import 'package:real_tor_app/presentation/pages/notification_page.dart';
+// import 'package:real_tor_app/presentation/pages/post_property_personal_detail_page.dart';
+// import 'package:real_tor_app/presentation/pages/post_property_pricing_detail_page.dart';
+// import 'package:real_tor_app/presentation/pages/post_property_property_detail.dart';
+// import 'package:real_tor_app/presentation/pages/post_property_start_page.dart';
+// import 'package:real_tor_app/presentation/pages/property_inside_page.dart';
+// import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
+// import 'package:real_tor_app/presentation/pages/property_search_filter_page.dart';
+// import 'package:real_tor_app/presentation/pages/property_search_home.dart';
 
 import '../../constants.dart';
 import '../../size_config.dart';
@@ -31,260 +31,260 @@ class ConversationPage extends StatefulWidget {
 }
 
 class _ConversationPageState extends State<ConversationPage> {
-  Widget popupMenuButton() {
-    return PopupMenuButton(
-      icon: const Icon(Icons.more_vert),
-      // color: Colors.blueGrey,
-      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: Text(
-                'Agent Profile',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AgentProfilePage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Chat History',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChatHistoryPage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Notificaiton Page',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NotificationPage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Login Page',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginPage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Property Search Home Page',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PropertySearchHome(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Property Listing Page',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PropertyListingPage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Post Proterty Start Page',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PostPropertyStartPage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Property Search Filter',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PropertySearchFilterPage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Advance Filter',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AdvanceFilterPage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-              child: const Text(
-                'Home Page',
-                style: TextStyle(color: Colors.black),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ),
-                );
-              }),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-            child: const Text(
-              'Loan Bank Detail',
-              style: TextStyle(color: Colors.black),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoanBankDetailPage(),
-                ),
-              );
-            },
-          ),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-            child: const Text(
-              'Loan Calculator',
-              style: TextStyle(color: Colors.black),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoanCalculatorPageTwo(),
-                ),
-              );
-            },
-          ),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-            child: const Text(
-              'Property Inside',
-              style: TextStyle(color: Colors.black),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PropertyInsidePage(),
-                ),
-              );
-            },
-          ),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-            child: const Text(
-              'Post Property Personal Detail',
-              style: TextStyle(color: Colors.black),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PostPropertyPersonalDetailPage(),
-                ),
-              );
-            },
-          ),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-            child: const Text(
-              'Post Property Property Detail',
-              style: TextStyle(color: Colors.black),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PostPropertyPropertyDetail(),
-                ),
-              );
-            },
-          ),
-        ),
-        PopupMenuItem<String>(
-          child: TextButton(
-            child: const Text(
-              'Post Property Pricing Detail',
-              style: TextStyle(color: Colors.black),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PostPropertyPricingDetailPage(),
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
-  }
+  // Widget popupMenuButton() {
+  //   return PopupMenuButton(
+  //     icon: const Icon(Icons.more_vert),
+  //     // color: Colors.blueGrey,
+  //     itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: Text(
+  //               'Agent Profile',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => AgentProfilePage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Chat History',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => ChatHistoryPage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Notificaiton Page',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => NotificationPage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Login Page',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => LoginPage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Property Search Home Page',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => PropertySearchHome(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Property Listing Page',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => PropertyListingPage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Post Proterty Start Page',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => PostPropertyStartPage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Property Search Filter',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => PropertySearchFilterPage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Advance Filter',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => AdvanceFilterPage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //             child: const Text(
+  //               'Home Page',
+  //               style: TextStyle(color: Colors.black),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => HomePage(),
+  //                 ),
+  //               );
+  //             }),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //           child: const Text(
+  //             'Loan Bank Detail',
+  //             style: TextStyle(color: Colors.black),
+  //           ),
+  //           onPressed: () {
+  //             Navigator.push(
+  //               context,
+  //               MaterialPageRoute(
+  //                 builder: (context) => LoanBankDetailPage(),
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //           child: const Text(
+  //             'Loan Calculator',
+  //             style: TextStyle(color: Colors.black),
+  //           ),
+  //           onPressed: () {
+  //             Navigator.push(
+  //               context,
+  //               MaterialPageRoute(
+  //                 builder: (context) => LoanCalculatorPageTwo(),
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //           child: const Text(
+  //             'Property Inside',
+  //             style: TextStyle(color: Colors.black),
+  //           ),
+  //           onPressed: () {
+  //             Navigator.push(
+  //               context,
+  //               MaterialPageRoute(
+  //                 builder: (context) => PropertyInsidePage(),
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //           child: const Text(
+  //             'Post Property Personal Detail',
+  //             style: TextStyle(color: Colors.black),
+  //           ),
+  //           onPressed: () {
+  //             Navigator.push(
+  //               context,
+  //               MaterialPageRoute(
+  //                 builder: (context) => PostPropertyPersonalDetailPage(),
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //           child: const Text(
+  //             'Post Property Property Detail',
+  //             style: TextStyle(color: Colors.black),
+  //           ),
+  //           onPressed: () {
+  //             Navigator.push(
+  //               context,
+  //               MaterialPageRoute(
+  //                 builder: (context) => PostPropertyPropertyDetail(),
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       ),
+  //       PopupMenuItem<String>(
+  //         child: TextButton(
+  //           child: const Text(
+  //             'Post Property Pricing Detail',
+  //             style: TextStyle(color: Colors.black),
+  //           ),
+  //           onPressed: () {
+  //             Navigator.push(
+  //               context,
+  //               MaterialPageRoute(
+  //                 builder: (context) => PostPropertyPricingDetailPage(),
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -306,7 +306,7 @@ class _ConversationPageState extends State<ConversationPage> {
           icon: SvgPicture.asset("assets/images/arrow_back_icon.svg"),
         ),
         actions: [
-          popupMenuButton(),
+          // popupMenuButton(),
           IconButton(
             onPressed: () {},
             icon: SvgPicture.asset("assets/images/search_icon.svg"),

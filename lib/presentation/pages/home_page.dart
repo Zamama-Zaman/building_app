@@ -6,6 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:real_tor_app/custom_icons_icons.dart';
 import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
+import 'package:real_tor_app/presentation/pages/loan_calculator_page_two.dart';
 import 'package:real_tor_app/size_config.dart';
 
 import '../../constants.dart';
@@ -18,56 +20,33 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final iconList = <IconData>[
-    CustomIcons.home,
-    CustomIcons.pinLocation,
-    CustomIcons.favourite,
-    CustomIcons.settings,
-  ];
-  List<Widget> get _pages => [ChatHistoryPage(), AgentProfilePage()];
-  int _pageNavIndex = 0;
-  Widget _bottomNavBar() {
-    return AnimatedBottomNavigationBar(
-      activeColor: Colors.blue,
-      backgroundColor: Color(0xFFEAF3FA),
-      gapLocation: GapLocation.center,
-      icons: iconList,
-      iconSize: 20,
-      activeIndex: _pageNavIndex,
-      onTap: (index) {
-        setState(() {
-          _pageNavIndex = index;
-        });
-      },
-    );
-  }
+  // final iconList = <IconData>[
+  //   CustomIcons.home,
+  //   CustomIcons.pinLocation,
+  //   CustomIcons.favourite,
+  //   CustomIcons.settings,
+  // ];
+  // List<Widget> get _pages => [ChatHistoryPage(), AgentProfilePage()];
+  // int _pageNavIndex = 0;
+  // Widget _bottomNavBar() {
+  //   return AnimatedBottomNavigationBar(
+  //     activeColor: Colors.blue,
+  //     backgroundColor: Color(0xFFEAF3FA),
+  //     gapLocation: GapLocation.center,
+  //     icons: iconList,
+  //     iconSize: 20,
+  //     activeIndex: _pageNavIndex,
+  //     onTap: (index) {
+  //       setState(() {
+  //         _pageNavIndex = index;
+  //       });
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        elevation: 8,
-        backgroundColor: Colors.white,
-        child: Container(
-          height: 50,
-          width: 50,
-          margin: EdgeInsets.all(3),
-          decoration: BoxDecoration(
-            color: Constant.kPrimaryButtonColor,
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: Icon(
-            Icons.add,
-            size: 30,
-          ),
-        ),
-        onPressed: () {},
-        //   //params
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
-      bottomNavigationBar: _bottomNavBar(),
-      backgroundColor: Constant.kBackgroundColor,
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, getProportionateScreenHeight(60)),
         child: SafeArea(
@@ -557,7 +536,8 @@ class _HomePageState extends State<HomePage> {
                                     height: getProportionateScreenHeight(15),
                                   ),
                                   SizedBox(
-                                      width: getProportionateScreenWidth(4)),
+                                    width: getProportionateScreenWidth(2),
+                                  ),
                                   Text(
                                     "2100 Sq/m",
                                     style: TextStyle(
@@ -734,7 +714,8 @@ class _HomePageState extends State<HomePage> {
                                     height: getProportionateScreenHeight(15),
                                   ),
                                   SizedBox(
-                                      width: getProportionateScreenWidth(4)),
+                                    width: getProportionateScreenWidth(2),
+                                  ),
                                   Text(
                                     "2100 Sq/m",
                                     style: TextStyle(
@@ -1000,7 +981,8 @@ class _HomePageState extends State<HomePage> {
                                     height: getProportionateScreenHeight(15),
                                   ),
                                   SizedBox(
-                                      width: getProportionateScreenWidth(4)),
+                                    width: getProportionateScreenWidth(2),
+                                  ),
                                   Text(
                                     "2100 Sq/m",
                                     style: TextStyle(
@@ -1177,7 +1159,8 @@ class _HomePageState extends State<HomePage> {
                                     height: getProportionateScreenHeight(15),
                                   ),
                                   SizedBox(
-                                      width: getProportionateScreenWidth(4)),
+                                    width: getProportionateScreenWidth(2),
+                                  ),
                                   Text(
                                     "2100 Sq/m",
                                     style: TextStyle(
@@ -1382,7 +1365,8 @@ class _HomePageState extends State<HomePage> {
                                     height: getProportionateScreenHeight(15),
                                   ),
                                   SizedBox(
-                                      width: getProportionateScreenWidth(4)),
+                                    width: getProportionateScreenWidth(2),
+                                  ),
                                   Text(
                                     "2100 Sq/m",
                                     style: TextStyle(
@@ -1559,7 +1543,8 @@ class _HomePageState extends State<HomePage> {
                                     height: getProportionateScreenHeight(15),
                                   ),
                                   SizedBox(
-                                      width: getProportionateScreenWidth(4)),
+                                    width: getProportionateScreenWidth(2),
+                                  ),
                                   Text(
                                     "2100 Sq/m",
                                     style: TextStyle(
@@ -1818,59 +1803,69 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
-                    Container(
-                      height: getProportionateScreenHeight(75),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoanBankDetailPage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: getProportionateScreenHeight(75),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          ),
+                          border: Border.all(
+                            color: Color(0xFF3E67D6),
+                            width: .5,
+                          ),
                         ),
-                        border: Border.all(
-                          color: Color(0xFF3E67D6),
-                          width: .5,
+                        child: Row(
+                          children: [
+                            SizedBox(width: getProportionateScreenWidth(10)),
+                            Image.asset(
+                              "assets/images/loan_calculator_image.png",
+                              width: 47,
+                              height: 47,
+                            ),
+                            SizedBox(width: getProportionateScreenWidth(15)),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Loan calculator",
+                                  style: TextStyle(
+                                    color: Color(0xFF313131),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Text(
+                                  "Globally e-enable worldwide infomediaries",
+                                  style: TextStyle(
+                                    color: Color(0xFF889399),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Spacer(),
+                            SvgPicture.asset(
+                              "assets/images/arrow_forward_icon.svg",
+                            ),
+                            SizedBox(width: getProportionateScreenWidth(15)),
+                          ],
                         ),
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(width: getProportionateScreenWidth(10)),
-                          Image.asset(
-                            "assets/images/loan_calculator_image.png",
-                            width: 47,
-                            height: 47,
-                          ),
-                          SizedBox(width: getProportionateScreenWidth(15)),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Loan calculator",
-                                style: TextStyle(
-                                  color: Color(0xFF313131),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Text(
-                                "Globally e-enable worldwide infomediaries",
-                                style: TextStyle(
-                                  color: Color(0xFF889399),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Spacer(),
-                          SvgPicture.asset(
-                            "assets/images/arrow_forward_icon.svg",
-                          ),
-                          SizedBox(width: getProportionateScreenWidth(15)),
-                        ],
                       ),
                     ),
                   ],

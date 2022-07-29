@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:real_tor_app/presentation/pages/advance_filters_page.dart';
 import 'package:real_tor_app/presentation/widgets/app_bar_widget.dart';
 import 'package:real_tor_app/size_config.dart';
 
@@ -81,13 +82,15 @@ class _PropertySearchFilterPageState extends State<PropertySearchFilterPage> {
                           ),
                           Spacer(),
                           Container(
-                            height: 27,
-                            width: 310,
+                            // height: 27,
+                            // width: 310,
+                            height: getProportionateScreenHeight(30),
+                            width: getProportionateScreenWidth(285),
                             color: Colors.transparent,
                             child: Text(
                               "Fill in some basic information, so can match you with your perfect place",
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: getProportionateScreenWidth(11),
                                 color: Color(0xFF889399),
                               ),
                             ),
@@ -190,8 +193,8 @@ class _PropertySearchFilterPageState extends State<PropertySearchFilterPage> {
                             4,
                             (index) {
                               return Container(
-                                height: 32,
-                                width: 72,
+                                height: getProportionateScreenHeight(32),
+                                width: getProportionateScreenWidth(64.6),
                                 margin: EdgeInsets.only(
                                     right: getProportionateScreenWidth(16)),
                                 decoration: BoxDecoration(
@@ -332,10 +335,20 @@ class _PropertySearchFilterPageState extends State<PropertySearchFilterPage> {
                             ),
                           ),
                           SizedBox(width: getProportionateScreenWidth(30)),
-                          Text(
-                            "Advanced Search",
-                            style: TextStyle(
-                              color: Color(0xFF3E67D6),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AdvanceFilterPage(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "Advanced Search",
+                              style: TextStyle(
+                                color: Color(0xFF3E67D6),
+                              ),
                             ),
                           ),
                         ],

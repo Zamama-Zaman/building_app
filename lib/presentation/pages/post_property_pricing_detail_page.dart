@@ -64,41 +64,33 @@ class _PostPropertyPricingDetailPageState
                       child: Row(
                         children: [
                           SizedBox(
-                            width: getProportionateScreenWidth(
-                              SizeConfig.screenWidth * 0.04,
-                            ),
+                            width: (SizeConfig.screenWidth * 0.04),
                           ),
                           SvgPicture.asset(
                             "assets/images/personal_details_icon.svg",
                           ),
                           SizedBox(
-                            width: getProportionateScreenWidth(
-                              SizeConfig.screenWidth * 0.01,
-                            ),
+                            width: (SizeConfig.screenWidth * 0.01),
                           ),
                           SvgPicture.asset(
                             "assets/images/horizontal_divider_icon.svg",
+                            width: SizeConfig.screenWidth * 0.15,
                           ),
                           SizedBox(
-                            width: getProportionateScreenWidth(
-                              SizeConfig.screenWidth * 0.01,
-                            ),
+                            width: (SizeConfig.screenWidth * 0.01),
                           ),
                           SvgPicture.asset(
                             "assets/images/property_detail_second_icon.svg",
                           ),
                           SizedBox(
-                            width: getProportionateScreenWidth(
-                              SizeConfig.screenWidth * 0.01,
-                            ),
+                            width: (SizeConfig.screenWidth * 0.01),
                           ),
                           SvgPicture.asset(
                             "assets/images/horizontal_divider_icon.svg",
+                            width: SizeConfig.screenWidth * 0.15,
                           ),
                           SizedBox(
-                            width: getProportionateScreenWidth(
-                              SizeConfig.screenWidth * 0.01,
-                            ),
+                            width: (SizeConfig.screenWidth * 0.01),
                           ),
                           SvgPicture.asset(
                             "assets/images/pricing_detail_second_icon.svg",

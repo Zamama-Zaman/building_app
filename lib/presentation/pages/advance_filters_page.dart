@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
 import 'package:real_tor_app/presentation/widgets/app_bar_widget.dart';
 
 import '../../constants.dart';
@@ -55,8 +56,8 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                       Row(
                         children: [
                           Container(
-                            width: 60.56,
-                            height: 33.56,
+                            width: getProportionateScreenWidth(60.56),
+                            height: getProportionateScreenHeight(33.56),
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
@@ -68,21 +69,24 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   "Flat",
                                   style: TextStyle(
                                     color: Color(0xFF0986E2),
+                                    fontSize: getProportionateScreenWidth(12),
                                   ),
                                 ),
                                 Spacer(),
                                 Icon(
                                   Icons.close,
                                   color: Color(0xFF0986E2),
-                                  size: 16,
+                                  size: getProportionateScreenWidth(16),
                                 ),
                               ],
                             ),
                           ),
                           SizedBox(width: getProportionateScreenWidth(10)),
                           Container(
-                            height: 33.56,
-                            width: 70.56,
+                            // height: 33.56,
+                            // width: 70.56,
+                            height: getProportionateScreenHeight(33.56),
+                            width: getProportionateScreenWidth(70.56),
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
@@ -94,21 +98,22 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   "1 BHK",
                                   style: TextStyle(
                                     color: Color(0xFF0986E2),
+                                    fontSize: getProportionateScreenWidth(12),
                                   ),
                                 ),
                                 Spacer(),
                                 Icon(
                                   Icons.close,
                                   color: Color(0xFF0986E2),
-                                  size: 16,
+                                  size: getProportionateScreenWidth(16),
                                 ),
                               ],
                             ),
                           ),
                           SizedBox(width: getProportionateScreenWidth(10)),
                           Container(
-                            height: 33.56,
-                            width: 93.56,
+                            height: getProportionateScreenHeight(33.56),
+                            width: getProportionateScreenWidth(70),
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
@@ -117,24 +122,27 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                             child: Row(
                               children: [
                                 Text(
-                                  "\$3 - \$5500",
+                                  "\$5500",
                                   style: TextStyle(
                                     color: Color(0xFF0986E2),
+                                    fontSize: getProportionateScreenWidth(12),
                                   ),
                                 ),
                                 Spacer(),
                                 Icon(
                                   Icons.close,
                                   color: Color(0xFF0986E2),
-                                  size: 16,
+                                  size: getProportionateScreenWidth(16),
                                 ),
                               ],
                             ),
                           ),
                           SizedBox(width: getProportionateScreenWidth(10)),
                           Container(
-                            height: 33.56,
-                            width: 102.56,
+                            // height: 33.56,
+                            // width: 102.56,
+                            height: getProportionateScreenHeight(33.56),
+                            width: getProportionateScreenWidth(80.56),
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
@@ -146,13 +154,14 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   "Furnished",
                                   style: TextStyle(
                                     color: Color(0xFF0986E2),
+                                    fontSize: getProportionateScreenWidth(12),
                                   ),
                                 ),
                                 Spacer(),
                                 Icon(
                                   Icons.close,
                                   color: Color(0xFF0986E2),
-                                  size: 16,
+                                  size: getProportionateScreenWidth(16),
                                 ),
                               ],
                             ),
@@ -189,10 +198,11 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   style: TextStyle(
                                     color: Color(0xFF484D61),
                                     fontWeight: FontWeight.w500,
+                                    fontSize: getProportionateScreenWidth(12),
                                   ),
                                 ),
                                 isExpanded: true,
-                                iconSize: 30.0,
+                                iconSize: getProportionateScreenWidth(25),
                                 style: TextStyle(color: Color(0xFF484D61)),
                                 items: ['Sqft', 'Sqft', 'Sqft'].map(
                                   (val) {
@@ -232,10 +242,11 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   style: TextStyle(
                                     color: Color(0xFF484D61),
                                     fontWeight: FontWeight.w500,
+                                    fontSize: getProportionateScreenWidth(12),
                                   ),
                                 ),
                                 isExpanded: true,
-                                iconSize: 30.0,
+                                iconSize: getProportionateScreenWidth(25),
                                 style: TextStyle(color: Color(0xFF484D61)),
                                 items: ['Max', 'Max', 'Max'].map(
                                   (val) {
@@ -275,10 +286,11 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   style: TextStyle(
                                     color: Color(0xFF484D61),
                                     fontWeight: FontWeight.w500,
+                                    fontSize: getProportionateScreenWidth(12),
                                   ),
                                 ),
                                 isExpanded: true,
-                                iconSize: 30.0,
+                                iconSize: getProportionateScreenWidth(25),
                                 style: TextStyle(color: Color(0xFF484D61)),
                                 items: ['Min', 'Min', 'Min'].map(
                                   (val) {
@@ -432,7 +444,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                         children: [
                           Container(
                             height: 33.56,
-                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(10),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -442,7 +456,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "Yesterday",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
@@ -450,7 +464,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                           Container(
                             height: 33.56,
                             // width: 102.56,
-                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(11),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -460,7 +476,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "Last week",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
@@ -468,7 +484,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                           Container(
                             height: 33.56,
                             // width: 102.56,
-                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(11),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -478,7 +496,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "Last 2 weeks",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
@@ -486,7 +504,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                           Container(
                             height: 33.56,
                             // width: 102.56,
-                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(11),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -496,7 +516,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "Anytime",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
@@ -518,10 +538,11 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                           children: [
                             Container(
                               height: 71,
-                              width: 60,
+                              width: getProportionateScreenWidth(60),
                               color: Colors.transparent,
                               margin: EdgeInsets.only(
-                                  right: getProportionateScreenWidth(5)),
+                                right: getProportionateScreenWidth(5),
+                              ),
                               child: Column(
                                 children: [
                                   Container(
@@ -543,7 +564,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   Text(
                                     "Parking",
                                     style: TextStyle(
-                                      fontSize: 10,
+                                      fontSize: getProportionateScreenWidth(10),
                                     ),
                                   ),
                                   Spacer(),
@@ -552,7 +573,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                             ),
                             Container(
                               height: 71,
-                              width: 60,
+                              width: getProportionateScreenWidth(60),
                               color: Colors.transparent,
                               margin: EdgeInsets.only(
                                   right: getProportionateScreenWidth(5)),
@@ -577,7 +598,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   Text(
                                     "Lift",
                                     style: TextStyle(
-                                      fontSize: 10,
+                                      fontSize: getProportionateScreenWidth(10),
                                     ),
                                   ),
                                   Spacer(),
@@ -586,7 +607,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                             ),
                             Container(
                               height: 76,
-                              width: 60,
+                              width: getProportionateScreenWidth(60),
                               color: Colors.transparent,
                               margin: EdgeInsets.only(
                                   right: getProportionateScreenWidth(5)),
@@ -611,7 +632,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   Text(
                                     "Power\nBackup",
                                     style: TextStyle(
-                                      fontSize: 10,
+                                      fontSize: getProportionateScreenWidth(10),
                                     ),
                                   ),
                                 ],
@@ -619,7 +640,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                             ),
                             Container(
                               height: 71,
-                              width: 60,
+                              width: getProportionateScreenWidth(60),
                               color: Colors.transparent,
                               margin: EdgeInsets.only(
                                   right: getProportionateScreenWidth(5)),
@@ -644,7 +665,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                                   Text(
                                     "Park",
                                     style: TextStyle(
-                                      fontSize: 10,
+                                      fontSize: getProportionateScreenWidth(10),
                                     ),
                                   ),
                                   Spacer(),
@@ -801,7 +822,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                         children: [
                           Container(
                             height: 33.56,
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(15),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -811,7 +834,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "East",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
@@ -819,7 +842,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                           Container(
                             height: 33.56,
                             // width: 102.56,
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(15),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -829,7 +854,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "North",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
@@ -837,7 +862,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                           Container(
                             height: 33.56,
                             // width: 102.56,
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(15),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -847,7 +874,7 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "North - East",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
@@ -855,7 +882,9 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                           Container(
                             height: 33.56,
                             // width: 102.56,
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: getProportionateScreenWidth(15),
+                            ),
                             decoration: BoxDecoration(
                               color: Color(0xFFEAF3FA),
                               borderRadius: BorderRadius.circular(5),
@@ -865,26 +894,36 @@ class _AdvanceFilterPageState extends State<AdvanceFilterPage> {
                               "North - West",
                               style: TextStyle(
                                 color: Color(0xFF484D61),
-                                fontSize: 11,
+                                fontSize: getProportionateScreenWidth(11),
                               ),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(height: getProportionateScreenHeight(40)),
-                      Container(
-                        height: 46,
-                        padding: EdgeInsets.symmetric(horizontal: 40),
-                        margin: EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFEA4C89),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          "See all properties (55)",
-                          style: TextStyle(
-                            color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PropertyListingPage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 46,
+                          padding: EdgeInsets.symmetric(horizontal: 40),
+                          margin: EdgeInsets.symmetric(horizontal: 20),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFEA4C89),
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "See all properties (55)",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

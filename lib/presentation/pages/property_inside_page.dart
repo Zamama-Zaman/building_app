@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
+import 'package:real_tor_app/presentation/pages/conversation_page.dart';
 
 import '../../size_config.dart';
 
@@ -33,7 +35,7 @@ class PropertyInsidePage extends StatelessWidget {
                               "Mary J Baines",
                               style: TextStyle(
                                 color: Color(0xFFAED964),
-                                fontSize: 16,
+                                fontSize: getProportionateScreenWidth(16),
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -88,9 +90,19 @@ class PropertyInsidePage extends StatelessWidget {
                                   height: 35,
                                 ),
                                 SizedBox(width: SizeConfig.screenWidth * 0.05),
-                                Image.asset(
-                                  "assets/images/call_image.png",
-                                  height: 35,
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ChatHistoryPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: Image.asset(
+                                    "assets/images/call_image.png",
+                                    height: 35,
+                                  ),
                                 ),
                               ],
                             ),
@@ -110,8 +122,8 @@ class PropertyInsidePage extends StatelessWidget {
                   bottom: 0,
                   left: 30,
                   child: Container(
-                    width: getProportionateScreenWidth(62),
-                    height: getProportionateScreenHeight(82),
+                    width: 70,
+                    height: 70,
                     padding: EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -986,19 +998,29 @@ class PropertyInsidePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: getProportionateScreenHeight(20)),
-            Container(
-              height: 46,
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              margin: EdgeInsets.symmetric(horizontal: 80),
-              decoration: BoxDecoration(
-                color: Color(0xFFEA4C89),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                "Check Availability",
-                style: TextStyle(
-                  color: Colors.white,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatHistoryPage(),
+                  ),
+                );
+              },
+              child: Container(
+                height: 46,
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                margin: EdgeInsets.symmetric(horizontal: 80),
+                decoration: BoxDecoration(
+                  color: Color(0xFFEA4C89),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  "Check Availability",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

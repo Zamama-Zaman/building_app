@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:real_tor_app/size_config.dart';
 
 class PostPropertyStartPage extends StatelessWidget {
   const PostPropertyStartPage({Key? key}) : super(key: key);
@@ -16,7 +17,9 @@ class PostPropertyStartPage extends StatelessWidget {
         child: Container(
           width: screenWidth,
           height: screenHeight,
-          padding: EdgeInsets.symmetric(horizontal: 40),
+          padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(30),
+          ),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
@@ -27,47 +30,47 @@ class PostPropertyStartPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 120),
+              SizedBox(height: getProportionateScreenHeight(150)),
               Text(
                 "Sell or Rent \nYour property",
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: getProportionateScreenWidth(28),
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: getProportionateScreenHeight(20)),
               Text(
                 "Distinctively generate orthogonal catalysts for change \nthrough high-quality imperatives.",
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: getProportionateScreenWidth(12),
                   color: Color(0xFFBAD1F2),
                 ),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: getProportionateScreenHeight(50)),
               Text(
                 "You are posting this property for",
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: getProportionateScreenWidth(15),
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: getProportionateScreenHeight(30)),
               Row(
                 children: [
                   Image.asset(
                     "assets/images/20_dollar_image.png",
-                    width: 28,
-                    height: 27,
+                    width: getProportionateScreenWidth(28),
+                    // height: 27,
                   ),
-                  SizedBox(width: 20),
+                  SizedBox(width: getProportionateScreenWidth(20)),
                   SvgPicture.asset(
                     "assets/images/free_icon.svg",
                   ),
                 ],
               ),
-              SizedBox(height: 40),
+              SizedBox(height: getProportionateScreenHeight(40)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -77,17 +80,17 @@ class PostPropertyStartPage extends StatelessWidget {
                       "assets/images/tic_icon.svg",
                     ),
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: getProportionateScreenWidth(10)),
                   Text(
                     "Interactively foster distinctive products through \nresource maximizing imperatives.",
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: getProportionateScreenWidth(12),
                       color: Color(0xFFBAD1F2),
                     ),
                   )
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: getProportionateScreenHeight(10)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -97,17 +100,17 @@ class PostPropertyStartPage extends StatelessWidget {
                       "assets/images/tic_icon.svg",
                     ),
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: getProportionateScreenWidth(10)),
                   Text(
                     'Rapidiously negotiate one-to-one e-commerce via \nbricks-and-clicks internal or "organic" sources.',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: getProportionateScreenWidth(12),
                       color: Color(0xFFBAD1F2),
                     ),
                   )
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: getProportionateScreenHeight(10)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -117,21 +120,21 @@ class PostPropertyStartPage extends StatelessWidget {
                       "assets/images/tic_icon.svg",
                     ),
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: getProportionateScreenWidth(10)),
                   Text(
                     "Enthusiastically whiteboard sticky technology before \nscalable supply chains.",
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: getProportionateScreenWidth(12),
                       color: Color(0xFFBAD1F2),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              SizedBox(height: getProportionateScreenHeight(50)),
               Center(
                 child: Container(
-                  width: 295,
-                  height: 66,
+                  width: getProportionateScreenWidth(295),
+                  height: getProportionateScreenHeight(66),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     border: Border.all(
@@ -145,6 +148,7 @@ class PostPropertyStartPage extends StatelessWidget {
                         "Get Started",
                         style: TextStyle(
                           color: Color(0xFFBAD1F2),
+                          fontSize: getProportionateScreenWidth(14),
                         ),
                       ),
                       SvgPicture.asset(
