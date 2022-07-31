@@ -302,7 +302,9 @@ class _ConversationPageState extends State<ConversationPage> {
         ),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: SvgPicture.asset("assets/images/arrow_back_icon.svg"),
         ),
         actions: [

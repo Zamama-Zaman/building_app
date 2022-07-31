@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: getProportionateScreenHeight(180)),
                         Container(
                           width: double.infinity,
-                          height: getProportionateScreenHeight(118),
+                          height: getProportionateScreenHeight(127),
                           color: Colors.transparent,
                           child: Text(
                             "Welcome Back",

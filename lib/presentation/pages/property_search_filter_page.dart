@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:real_tor_app/presentation/pages/advance_filters_page.dart';
+import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
 import 'package:real_tor_app/presentation/widgets/app_bar_widget.dart';
 import 'package:real_tor_app/size_config.dart';
 
@@ -63,10 +64,20 @@ class _PropertySearchFilterPageState extends State<PropertySearchFilterPage> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Image.asset(
-                            "assets/images/buy_property_button.png",
-                            width: 94,
-                            height: 31,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PropertyListingPage(),
+                                ),
+                              );
+                            },
+                            child: Image.asset(
+                              "assets/images/buy_property_button.png",
+                              width: 94,
+                              height: 31,
+                            ),
                           ),
                         ],
                       ),

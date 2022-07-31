@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 
 import '../../constants.dart';
 import '../../size_config.dart';
@@ -122,12 +123,22 @@ class _PostPropertyPropertyDetailState
                               //     SizeConfig.screenWidth * 0.02,
                               //   ),
                               // ),
-                              Container(
-                                height: 66,
-                                width: 66,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFC4C4C4),
-                                  borderRadius: BorderRadius.circular(50),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => AgentProfilePage(),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  height: 66,
+                                  width: 66,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFC4C4C4),
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
                                 ),
                               ),
                               SizedBox(

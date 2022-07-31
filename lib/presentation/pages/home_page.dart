@@ -8,6 +8,9 @@ import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
 import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
 import 'package:real_tor_app/presentation/pages/loan_calculator_page_two.dart';
+import 'package:real_tor_app/presentation/pages/property_inside_page.dart';
+import 'package:real_tor_app/presentation/pages/property_listing_page.dart';
+import 'package:real_tor_app/presentation/pages/property_search_filter_page.dart';
 import 'package:real_tor_app/size_config.dart';
 
 import '../../constants.dart';
@@ -224,24 +227,35 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.transparent,
                             child: Column(
                               children: [
-                                Container(
-                                  height: 52,
-                                  width: 52,
-                                  padding: const EdgeInsets.all(3.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            PropertyListingPage(),
+                                      ),
+                                    );
+                                  },
                                   child: Container(
+                                    height: 52,
+                                    width: 52,
+                                    padding: const EdgeInsets.all(3.0),
                                     decoration: BoxDecoration(
-                                      color: Color(0xFFFEAE3E),
+                                      color: Colors.white,
                                       borderRadius: BorderRadius.circular(50),
                                     ),
-                                    child: Center(
-                                      child: SvgPicture.asset(
-                                        "assets/images/buy_property_icon.svg",
-                                        width: 25,
-                                        height: 25,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFFEAE3E),
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
+                                      child: Center(
+                                        child: SvgPicture.asset(
+                                          "assets/images/buy_property_icon.svg",
+                                          width: 25,
+                                          height: 25,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -325,23 +339,33 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
-                    Container(
-                      height: getProportionateScreenHeight(55),
-                      width: getProportionateScreenWidth(297),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        border: Border.all(
-                          color: Color(0xFF0986E2),
-                          width: 1,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PropertySearchFilterPage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: getProportionateScreenHeight(55),
+                        width: getProportionateScreenWidth(297),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          border: Border.all(
+                            color: Color(0xFF0986E2),
+                            width: 1,
+                          ),
                         ),
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Cuztomise your property",
-                        style: TextStyle(
-                          color: Color(0xFF000000),
-                          fontSize: getProportionateScreenWidth(16),
-                          fontWeight: FontWeight.w500,
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Cuztomise your property",
+                          style: TextStyle(
+                            color: Color(0xFF000000),
+                            fontSize: getProportionateScreenWidth(16),
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ),
@@ -361,10 +385,20 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Image.asset(
-                            "assets/images/arrow_forward_image.png",
-                            width: 17,
-                            height: 16,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PropertyListingPage(),
+                                ),
+                              );
+                            },
+                            child: Image.asset(
+                              "assets/images/arrow_forward_image.png",
+                              width: 17,
+                              height: 16,
+                            ),
                           ),
                         ],
                       ),
@@ -372,359 +406,395 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(height: getProportionateScreenHeight(20)),
                     Row(
                       children: [
-                        Container(
-                          height: getProportionateScreenHeight(300),
-                          width: getProportionateScreenWidth(162),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade300,
-                                spreadRadius: 1,
-                                blurRadius: 10,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PropertyInsidePage(),
                               ),
-                            ],
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
+                            );
+                          },
+                          child: Container(
+                            height: getProportionateScreenHeight(300),
+                            width: getProportionateScreenWidth(162),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade300,
+                                  spreadRadius: 1,
+                                  blurRadius: 10,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    height: getProportionateScreenHeight(145),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: getProportionateScreenHeight(128),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFC4C4C4),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                        bottomRight: Radius.circular(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: getProportionateScreenHeight(145),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    top: 5,
-                                    right: 5,
-                                    child: Container(
-                                      height: getProportionateScreenHeight(27),
-                                      width: getProportionateScreenWidth(55),
+                                    Container(
+                                      height: getProportionateScreenHeight(128),
+                                      width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF6E8BFE),
+                                        color: Color(0xFFC4C4C4),
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        ),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Owner",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize:
-                                              getProportionateScreenWidth(14),
-                                          fontWeight: FontWeight.w400,
+                                          topLeft: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 5,
-                                    child: Container(
-                                      width: 34,
-                                      height: 34,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF979797),
-                                        borderRadius: BorderRadius.circular(50),
+                                    Positioned(
+                                      top: 5,
+                                      right: 5,
+                                      child: Container(
+                                        height:
+                                            getProportionateScreenHeight(27),
+                                        width: getProportionateScreenWidth(55),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF6E8BFE),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5),
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Owner",
+                                          style: TextStyle(
+                                            color: Color(0xFFFFFFFF),
+                                            fontSize:
+                                                getProportionateScreenWidth(14),
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ 4460.00",
-                                    style: TextStyle(
-                                      color: Color(0xFF0986E2),
-                                      fontSize: getProportionateScreenWidth(17),
-                                      fontWeight: FontWeight.w500,
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 5,
+                                      child: Container(
+                                        width: 34,
+                                        height: 34,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF979797),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/call_image.png",
-                                    height: 18,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "Santi Nivas",
-                                style: TextStyle(
-                                  color: Color(0xFF382D26),
-                                  fontSize: getProportionateScreenWidth(16),
-                                  fontWeight: FontWeight.w500,
+                                  ],
                                 ),
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "DN Block, Sector 5, Salt \nLake, Kolkata",
-                                style: TextStyle(
-                                  color: Color(0xFF889399),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "\$ 4460.00",
+                                      style: TextStyle(
+                                        color: Color(0xFF0986E2),
+                                        fontSize:
+                                            getProportionateScreenWidth(17),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Image.asset(
+                                      "assets/images/call_image.png",
+                                      height: 18,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/bed_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "Santi Nivas",
+                                  style: TextStyle(
+                                    color: Color(0xFF382D26),
+                                    fontSize: getProportionateScreenWidth(16),
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "04",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "DN Block, Sector 5, Salt \nLake, Kolkata",
+                                  style: TextStyle(
+                                    color: Color(0xFF889399),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/bed_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/bath_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "05",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "04",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/sq_foot_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                    width: getProportionateScreenWidth(2),
-                                  ),
-                                  Text(
-                                    "2100 Sq/m",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/bath_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "05",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/sq_foot_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
+                                    ),
+                                    SizedBox(
+                                      width: getProportionateScreenWidth(2),
+                                    ),
+                                    Text(
+                                      "2100 Sq/m",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(width: getProportionateScreenWidth(10)),
-                        Container(
-                          height: getProportionateScreenHeight(300),
-                          width: getProportionateScreenWidth(162),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade300,
-                                spreadRadius: 1,
-                                blurRadius: 10,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PropertyInsidePage(),
                               ),
-                            ],
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
+                            );
+                          },
+                          child: Container(
+                            height: getProportionateScreenHeight(300),
+                            width: getProportionateScreenWidth(162),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade300,
+                                  spreadRadius: 1,
+                                  blurRadius: 10,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    height: getProportionateScreenHeight(145),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: getProportionateScreenHeight(128),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFC4C4C4),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                        bottomRight: Radius.circular(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: getProportionateScreenHeight(145),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    top: 5,
-                                    right: 5,
-                                    child: Container(
-                                      height: getProportionateScreenHeight(27),
-                                      width: getProportionateScreenWidth(55),
+                                    Container(
+                                      height: getProportionateScreenHeight(128),
+                                      width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF6E8BFE),
+                                        color: Color(0xFFC4C4C4),
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        ),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Owner",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize:
-                                              getProportionateScreenWidth(14),
-                                          fontWeight: FontWeight.w400,
+                                          topLeft: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 5,
-                                    child: Container(
-                                      width: 34,
-                                      height: 34,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF979797),
-                                        borderRadius: BorderRadius.circular(50),
+                                    Positioned(
+                                      top: 5,
+                                      right: 5,
+                                      child: Container(
+                                        height:
+                                            getProportionateScreenHeight(27),
+                                        width: getProportionateScreenWidth(55),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF6E8BFE),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5),
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Owner",
+                                          style: TextStyle(
+                                            color: Color(0xFFFFFFFF),
+                                            fontSize:
+                                                getProportionateScreenWidth(14),
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ 4460.00",
-                                    style: TextStyle(
-                                      color: Color(0xFF0986E2),
-                                      fontSize: getProportionateScreenWidth(17),
-                                      fontWeight: FontWeight.w500,
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 5,
+                                      child: Container(
+                                        width: 34,
+                                        height: 34,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF979797),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/call_image.png",
-                                    height: 18,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "Santi Nivas",
-                                style: TextStyle(
-                                  color: Color(0xFF382D26),
-                                  fontSize: getProportionateScreenWidth(16),
-                                  fontWeight: FontWeight.w500,
+                                  ],
                                 ),
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "DN Block, Sector 5, Salt \nLake, Kolkata",
-                                style: TextStyle(
-                                  color: Color(0xFF889399),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "\$ 4460.00",
+                                      style: TextStyle(
+                                        color: Color(0xFF0986E2),
+                                        fontSize:
+                                            getProportionateScreenWidth(17),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Image.asset(
+                                      "assets/images/call_image.png",
+                                      height: 18,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/bed_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "Santi Nivas",
+                                  style: TextStyle(
+                                    color: Color(0xFF382D26),
+                                    fontSize: getProportionateScreenWidth(16),
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "04",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "DN Block, Sector 5, Salt \nLake, Kolkata",
+                                  style: TextStyle(
+                                    color: Color(0xFF889399),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/bed_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/bath_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "05",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "04",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/sq_foot_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                    width: getProportionateScreenWidth(2),
-                                  ),
-                                  Text(
-                                    "2100 Sq/m",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/bath_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "05",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/sq_foot_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
+                                    ),
+                                    SizedBox(
+                                      width: getProportionateScreenWidth(2),
+                                    ),
+                                    Text(
+                                      "2100 Sq/m",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -817,359 +887,395 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(height: getProportionateScreenHeight(20)),
                     Row(
                       children: [
-                        Container(
-                          height: getProportionateScreenHeight(300),
-                          width: getProportionateScreenWidth(162),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade300,
-                                spreadRadius: 1,
-                                blurRadius: 10,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PropertyInsidePage(),
                               ),
-                            ],
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
+                            );
+                          },
+                          child: Container(
+                            height: getProportionateScreenHeight(300),
+                            width: getProportionateScreenWidth(162),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade300,
+                                  spreadRadius: 1,
+                                  blurRadius: 10,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    height: getProportionateScreenHeight(145),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: getProportionateScreenHeight(128),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFC4C4C4),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                        bottomRight: Radius.circular(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: getProportionateScreenHeight(145),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    top: 5,
-                                    right: 5,
-                                    child: Container(
-                                      height: getProportionateScreenHeight(27),
-                                      width: getProportionateScreenWidth(55),
+                                    Container(
+                                      height: getProportionateScreenHeight(128),
+                                      width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF6E8BFE),
+                                        color: Color(0xFFC4C4C4),
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        ),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Owner",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize:
-                                              getProportionateScreenWidth(14),
-                                          fontWeight: FontWeight.w400,
+                                          topLeft: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 5,
-                                    child: Container(
-                                      width: 34,
-                                      height: 34,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF979797),
-                                        borderRadius: BorderRadius.circular(50),
+                                    Positioned(
+                                      top: 5,
+                                      right: 5,
+                                      child: Container(
+                                        height:
+                                            getProportionateScreenHeight(27),
+                                        width: getProportionateScreenWidth(55),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF6E8BFE),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5),
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Owner",
+                                          style: TextStyle(
+                                            color: Color(0xFFFFFFFF),
+                                            fontSize:
+                                                getProportionateScreenWidth(14),
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ 4460.00",
-                                    style: TextStyle(
-                                      color: Color(0xFF0986E2),
-                                      fontSize: getProportionateScreenWidth(17),
-                                      fontWeight: FontWeight.w500,
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 5,
+                                      child: Container(
+                                        width: 34,
+                                        height: 34,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF979797),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/call_image.png",
-                                    height: 18,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "Santi Nivas",
-                                style: TextStyle(
-                                  color: Color(0xFF382D26),
-                                  fontSize: getProportionateScreenWidth(16),
-                                  fontWeight: FontWeight.w500,
+                                  ],
                                 ),
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "DN Block, Sector 5, Salt \nLake, Kolkata",
-                                style: TextStyle(
-                                  color: Color(0xFF889399),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "\$ 4460.00",
+                                      style: TextStyle(
+                                        color: Color(0xFF0986E2),
+                                        fontSize:
+                                            getProportionateScreenWidth(17),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Image.asset(
+                                      "assets/images/call_image.png",
+                                      height: 18,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/bed_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "Santi Nivas",
+                                  style: TextStyle(
+                                    color: Color(0xFF382D26),
+                                    fontSize: getProportionateScreenWidth(16),
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "04",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "DN Block, Sector 5, Salt \nLake, Kolkata",
+                                  style: TextStyle(
+                                    color: Color(0xFF889399),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/bed_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/bath_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "05",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "04",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/sq_foot_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                    width: getProportionateScreenWidth(2),
-                                  ),
-                                  Text(
-                                    "2100 Sq/m",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/bath_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "05",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/sq_foot_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
+                                    ),
+                                    SizedBox(
+                                      width: getProportionateScreenWidth(2),
+                                    ),
+                                    Text(
+                                      "2100 Sq/m",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(width: getProportionateScreenWidth(10)),
-                        Container(
-                          height: getProportionateScreenHeight(300),
-                          width: getProportionateScreenWidth(162),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade300,
-                                spreadRadius: 1,
-                                blurRadius: 10,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PropertyInsidePage(),
                               ),
-                            ],
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
+                            );
+                          },
+                          child: Container(
+                            height: getProportionateScreenHeight(300),
+                            width: getProportionateScreenWidth(162),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade300,
+                                  spreadRadius: 1,
+                                  blurRadius: 10,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    height: getProportionateScreenHeight(145),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: getProportionateScreenHeight(128),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFC4C4C4),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                        bottomRight: Radius.circular(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: getProportionateScreenHeight(145),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    top: 5,
-                                    right: 5,
-                                    child: Container(
-                                      height: getProportionateScreenHeight(27),
-                                      width: getProportionateScreenWidth(55),
+                                    Container(
+                                      height: getProportionateScreenHeight(128),
+                                      width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF6E8BFE),
+                                        color: Color(0xFFC4C4C4),
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        ),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Owner",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize:
-                                              getProportionateScreenWidth(14),
-                                          fontWeight: FontWeight.w400,
+                                          topLeft: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 5,
-                                    child: Container(
-                                      width: 34,
-                                      height: 34,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF979797),
-                                        borderRadius: BorderRadius.circular(50),
+                                    Positioned(
+                                      top: 5,
+                                      right: 5,
+                                      child: Container(
+                                        height:
+                                            getProportionateScreenHeight(27),
+                                        width: getProportionateScreenWidth(55),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF6E8BFE),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5),
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Owner",
+                                          style: TextStyle(
+                                            color: Color(0xFFFFFFFF),
+                                            fontSize:
+                                                getProportionateScreenWidth(14),
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ 4460.00",
-                                    style: TextStyle(
-                                      color: Color(0xFF0986E2),
-                                      fontSize: getProportionateScreenWidth(17),
-                                      fontWeight: FontWeight.w500,
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 5,
+                                      child: Container(
+                                        width: 34,
+                                        height: 34,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF979797),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/call_image.png",
-                                    height: 18,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "Santi Nivas",
-                                style: TextStyle(
-                                  color: Color(0xFF382D26),
-                                  fontSize: getProportionateScreenWidth(16),
-                                  fontWeight: FontWeight.w500,
+                                  ],
                                 ),
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "DN Block, Sector 5, Salt \nLake, Kolkata",
-                                style: TextStyle(
-                                  color: Color(0xFF889399),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "\$ 4460.00",
+                                      style: TextStyle(
+                                        color: Color(0xFF0986E2),
+                                        fontSize:
+                                            getProportionateScreenWidth(17),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Image.asset(
+                                      "assets/images/call_image.png",
+                                      height: 18,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/bed_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "Santi Nivas",
+                                  style: TextStyle(
+                                    color: Color(0xFF382D26),
+                                    fontSize: getProportionateScreenWidth(16),
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "04",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "DN Block, Sector 5, Salt \nLake, Kolkata",
+                                  style: TextStyle(
+                                    color: Color(0xFF889399),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/bed_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/bath_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "05",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "04",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/sq_foot_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                    width: getProportionateScreenWidth(2),
-                                  ),
-                                  Text(
-                                    "2100 Sq/m",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/bath_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "05",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/sq_foot_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
+                                    ),
+                                    SizedBox(
+                                      width: getProportionateScreenWidth(2),
+                                    ),
+                                    Text(
+                                      "2100 Sq/m",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -1201,359 +1307,395 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(height: getProportionateScreenHeight(20)),
                     Row(
                       children: [
-                        Container(
-                          height: getProportionateScreenHeight(300),
-                          width: getProportionateScreenWidth(162),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade300,
-                                spreadRadius: 1,
-                                blurRadius: 10,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PropertyInsidePage(),
                               ),
-                            ],
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
+                            );
+                          },
+                          child: Container(
+                            height: getProportionateScreenHeight(300),
+                            width: getProportionateScreenWidth(162),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade300,
+                                  spreadRadius: 1,
+                                  blurRadius: 10,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    height: getProportionateScreenHeight(145),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: getProportionateScreenHeight(128),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFC4C4C4),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                        bottomRight: Radius.circular(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: getProportionateScreenHeight(145),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    top: 5,
-                                    right: 5,
-                                    child: Container(
-                                      height: getProportionateScreenHeight(27),
-                                      width: getProportionateScreenWidth(55),
+                                    Container(
+                                      height: getProportionateScreenHeight(128),
+                                      width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF6E8BFE),
+                                        color: Color(0xFFC4C4C4),
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        ),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Owner",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize:
-                                              getProportionateScreenWidth(14),
-                                          fontWeight: FontWeight.w400,
+                                          topLeft: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 5,
-                                    child: Container(
-                                      width: 34,
-                                      height: 34,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF979797),
-                                        borderRadius: BorderRadius.circular(50),
+                                    Positioned(
+                                      top: 5,
+                                      right: 5,
+                                      child: Container(
+                                        height:
+                                            getProportionateScreenHeight(27),
+                                        width: getProportionateScreenWidth(55),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF6E8BFE),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5),
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Owner",
+                                          style: TextStyle(
+                                            color: Color(0xFFFFFFFF),
+                                            fontSize:
+                                                getProportionateScreenWidth(14),
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ 4460.00",
-                                    style: TextStyle(
-                                      color: Color(0xFF0986E2),
-                                      fontSize: getProportionateScreenWidth(17),
-                                      fontWeight: FontWeight.w500,
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 5,
+                                      child: Container(
+                                        width: 34,
+                                        height: 34,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF979797),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/call_image.png",
-                                    height: 18,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "Santi Nivas",
-                                style: TextStyle(
-                                  color: Color(0xFF382D26),
-                                  fontSize: getProportionateScreenWidth(16),
-                                  fontWeight: FontWeight.w500,
+                                  ],
                                 ),
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "DN Block, Sector 5, Salt \nLake, Kolkata",
-                                style: TextStyle(
-                                  color: Color(0xFF889399),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "\$ 4460.00",
+                                      style: TextStyle(
+                                        color: Color(0xFF0986E2),
+                                        fontSize:
+                                            getProportionateScreenWidth(17),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Image.asset(
+                                      "assets/images/call_image.png",
+                                      height: 18,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/bed_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "Santi Nivas",
+                                  style: TextStyle(
+                                    color: Color(0xFF382D26),
+                                    fontSize: getProportionateScreenWidth(16),
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "04",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "DN Block, Sector 5, Salt \nLake, Kolkata",
+                                  style: TextStyle(
+                                    color: Color(0xFF889399),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/bed_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/bath_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "05",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "04",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/sq_foot_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                    width: getProportionateScreenWidth(2),
-                                  ),
-                                  Text(
-                                    "2100 Sq/m",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/bath_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "05",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/sq_foot_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
+                                    ),
+                                    SizedBox(
+                                      width: getProportionateScreenWidth(2),
+                                    ),
+                                    Text(
+                                      "2100 Sq/m",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(width: getProportionateScreenWidth(10)),
-                        Container(
-                          height: getProportionateScreenHeight(300),
-                          width: getProportionateScreenWidth(162),
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.shade300,
-                                spreadRadius: 1,
-                                blurRadius: 10,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PropertyInsidePage(),
                               ),
-                            ],
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
+                            );
+                          },
+                          child: Container(
+                            height: getProportionateScreenHeight(300),
+                            width: getProportionateScreenWidth(162),
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.shade300,
+                                  spreadRadius: 1,
+                                  blurRadius: 10,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
                             ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    height: getProportionateScreenHeight(145),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Colors.transparent,
-                                    ),
-                                  ),
-                                  Container(
-                                    height: getProportionateScreenHeight(128),
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFC4C4C4),
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8),
-                                        bottomRight: Radius.circular(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      height: getProportionateScreenHeight(145),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    top: 5,
-                                    right: 5,
-                                    child: Container(
-                                      height: getProportionateScreenHeight(27),
-                                      width: getProportionateScreenWidth(55),
+                                    Container(
+                                      height: getProportionateScreenHeight(128),
+                                      width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF6E8BFE),
+                                        color: Color(0xFFC4C4C4),
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5),
-                                          bottomRight: Radius.circular(5),
-                                        ),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        "Owner",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize:
-                                              getProportionateScreenWidth(14),
-                                          fontWeight: FontWeight.w400,
+                                          topLeft: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 5,
-                                    child: Container(
-                                      width: 34,
-                                      height: 34,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF979797),
-                                        borderRadius: BorderRadius.circular(50),
+                                    Positioned(
+                                      top: 5,
+                                      right: 5,
+                                      child: Container(
+                                        height:
+                                            getProportionateScreenHeight(27),
+                                        width: getProportionateScreenWidth(55),
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF6E8BFE),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5),
+                                            bottomLeft: Radius.circular(5),
+                                            bottomRight: Radius.circular(5),
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Owner",
+                                          style: TextStyle(
+                                            color: Color(0xFFFFFFFF),
+                                            fontSize:
+                                                getProportionateScreenWidth(14),
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "\$ 4460.00",
-                                    style: TextStyle(
-                                      color: Color(0xFF0986E2),
-                                      fontSize: getProportionateScreenWidth(17),
-                                      fontWeight: FontWeight.w500,
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 5,
+                                      child: Container(
+                                        width: 34,
+                                        height: 34,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF979797),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/call_image.png",
-                                    height: 18,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "Santi Nivas",
-                                style: TextStyle(
-                                  color: Color(0xFF382D26),
-                                  fontSize: getProportionateScreenWidth(16),
-                                  fontWeight: FontWeight.w500,
+                                  ],
                                 ),
-                              ),
-                              SizedBox(height: getProportionateScreenHeight(5)),
-                              Text(
-                                "DN Block, Sector 5, Salt \nLake, Kolkata",
-                                style: TextStyle(
-                                  color: Color(0xFF889399),
-                                  fontSize: getProportionateScreenWidth(11),
-                                  fontWeight: FontWeight.w400,
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "\$ 4460.00",
+                                      style: TextStyle(
+                                        color: Color(0xFF0986E2),
+                                        fontSize:
+                                            getProportionateScreenWidth(17),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Image.asset(
+                                      "assets/images/call_image.png",
+                                      height: 18,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(
-                                  height: getProportionateScreenHeight(10)),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/bed_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "Santi Nivas",
+                                  style: TextStyle(
+                                    color: Color(0xFF382D26),
+                                    fontSize: getProportionateScreenWidth(16),
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "04",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(5)),
+                                Text(
+                                  "DN Block, Sector 5, Salt \nLake, Kolkata",
+                                  style: TextStyle(
+                                    color: Color(0xFF889399),
+                                    fontSize: getProportionateScreenWidth(11),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: getProportionateScreenHeight(10)),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/bed_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/bath_room_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Text(
-                                    "05",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "04",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                      width: getProportionateScreenWidth(5)),
-                                  Image.asset(
-                                    "assets/images/sq_foot_image.png",
-                                    width: getProportionateScreenWidth(15),
-                                    height: getProportionateScreenHeight(15),
-                                  ),
-                                  SizedBox(
-                                    width: getProportionateScreenWidth(2),
-                                  ),
-                                  Text(
-                                    "2100 Sq/m",
-                                    style: TextStyle(
-                                      fontSize: getProportionateScreenWidth(10),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/bath_room_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Text(
+                                      "05",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: getProportionateScreenWidth(5)),
+                                    Image.asset(
+                                      "assets/images/sq_foot_image.png",
+                                      width: getProportionateScreenWidth(15),
+                                      height: getProportionateScreenHeight(15),
+                                    ),
+                                    SizedBox(
+                                      width: getProportionateScreenWidth(2),
+                                    ),
+                                    Text(
+                                      "2100 Sq/m",
+                                      style: TextStyle(
+                                        fontSize:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -1620,25 +1762,36 @@ class _HomePageState extends State<HomePage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Container(
-                                    height: getProportionateScreenHeight(32),
-                                    width: getProportionateScreenWidth(74),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(5),
-                                        bottomLeft: Radius.circular(5),
-                                        bottomRight: Radius.circular(5),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              PropertyInsidePage(),
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      height: getProportionateScreenHeight(32),
+                                      width: getProportionateScreenWidth(74),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(5),
+                                          bottomLeft: Radius.circular(5),
+                                          bottomRight: Radius.circular(5),
+                                        ),
                                       ),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Sponsored",
-                                      style: TextStyle(
-                                        color: Color(0xFF0986E2),
-                                        fontSize:
-                                            getProportionateScreenWidth(12),
-                                        fontWeight: FontWeight.w400,
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        "Sponsored",
+                                        style: TextStyle(
+                                          color: Color(0xFF0986E2),
+                                          fontSize:
+                                              getProportionateScreenWidth(12),
+                                          fontWeight: FontWeight.w400,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -1808,7 +1961,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoanBankDetailPage(),
+                            builder: (context) => LoanCalculatorPageTwo(),
                           ),
                         );
                       },

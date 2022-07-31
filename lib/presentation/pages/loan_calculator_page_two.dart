@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:real_tor_app/presentation/pages/loan_bank_details_page.dart';
 
 import '../../constants.dart';
 import '../../size_config.dart';
@@ -24,7 +25,9 @@ class LoanCalculatorPageTwo extends StatelessWidget {
         ),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: SvgPicture.asset("assets/images/arrow_back_icon.svg"),
         ),
         actions: [
@@ -693,19 +696,29 @@ class LoanCalculatorPageTwo extends StatelessWidget {
                       ),
 
                       SizedBox(height: SizeConfig.screenHeight * 0.04),
-                      Container(
-                        height: 46,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        margin: EdgeInsets.symmetric(horizontal: 80),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFEA4C89),
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Calculate EMI",
-                          style: TextStyle(
-                            color: Colors.white,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoanBankDetailPage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 46,
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          margin: EdgeInsets.symmetric(horizontal: 80),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFEA4C89),
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Calculate EMI",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

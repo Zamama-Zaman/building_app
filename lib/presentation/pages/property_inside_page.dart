@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:real_tor_app/presentation/pages/agent_profile_page.dart';
 import 'package:real_tor_app/presentation/pages/chat_history_page.dart';
 import 'package:real_tor_app/presentation/pages/conversation_page.dart';
+import 'package:real_tor_app/presentation/pages/loan_calculator_page_two.dart';
 
 import '../../size_config.dart';
 
@@ -85,9 +87,20 @@ class PropertyInsidePage extends StatelessWidget {
                             Row(
                               children: [
                                 SizedBox(width: SizeConfig.screenWidth * 0.15),
-                                Image.asset(
-                                  "assets/images/mail_image.png",
-                                  height: 35,
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ConversationPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: Image.asset(
+                                    "assets/images/mail_image.png",
+                                    height: 35,
+                                  ),
                                 ),
                                 SizedBox(width: SizeConfig.screenWidth * 0.05),
                                 InkWell(
@@ -121,18 +134,28 @@ class PropertyInsidePage extends StatelessWidget {
                 Positioned(
                   bottom: 0,
                   left: 30,
-                  child: Container(
-                    width: 70,
-                    height: 70,
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AgentProfilePage(),
+                        ),
+                      );
+                    },
                     child: Container(
+                      width: 70,
+                      height: 70,
+                      padding: EdgeInsets.all(3),
                       decoration: BoxDecoration(
-                        color: Colors.red.shade300,
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.red.shade300,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
                       ),
                     ),
                   ),
@@ -230,12 +253,22 @@ class PropertyInsidePage extends StatelessWidget {
                         ),
                       ),
                       Spacer(),
-                      Text(
-                        'EMI Calculate',
-                        style: TextStyle(
-                          color: Color(0xFF484D61),
-                          fontSize: getProportionateScreenWidth(11),
-                          fontWeight: FontWeight.w700,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoanCalculatorPageTwo(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'EMI Calculate',
+                          style: TextStyle(
+                            color: Color(0xFF484D61),
+                            fontSize: getProportionateScreenWidth(11),
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ],
